@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 75px;
 }
 
 .App-logo {
@@ -19,4 +22,47 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+.header {
+  grid-column-start: 1;
+  grid-column-end: span 1;
+}
+
+.articles-container {
+  grid-row-start: 2;
+  grid-row-end: span 1;
+  background-color: lightgray;
+  display: grid;
+  grid-column-gap: 15px;
+  grid-template-columns: 10% 700px 300px 10%;
+  grid-template-rows: 150px 1fr 1fr;
+}
+
+.block {
+  border: 1px solid blue;
+}
+
+.topic-header {
+  background-color: whitesmoke;
+  grid-row-start: 1;
+  grid-row-end: span 1;
+  grid-column-start: 1;
+  grid-column-end: span 5;
+}
+
+.articles-list {
+  background-color: whitesmoke;
+  grid-row-start: 2;
+  grid-column-start: 2;
+  grid-row-end: span 2;
+  grid-column-end: span 1;
+}
+
+.topics-list {
+  background-color: whitesmoke;
+  grid-column-start: 3;
+  grid-column-end: span 1;
+  grid-row-start: 2;
+  grid-row-end: span 2;
 }
