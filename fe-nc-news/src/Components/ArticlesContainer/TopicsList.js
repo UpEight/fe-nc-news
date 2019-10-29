@@ -23,7 +23,7 @@ class TopicsList extends React.Component {
     return (
       <section className="topics-list">
         <h2>Topics</h2>
-        <ul className="no-padding">
+        <ul className="no-padding no-margin">
           {topics.map(topic => (
             <TopicCard key={topic.slug} topic={topic} />
           ))}

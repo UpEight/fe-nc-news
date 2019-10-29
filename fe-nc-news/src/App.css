@@ -107,6 +107,7 @@
   background-color: whitesmoke;
   border: 1px solid lightgrey;
   grid-area: topics-list;
+  align-self: flex-start;
   display: flex;
   flex-direction: column;
 }
@@ -138,4 +139,8 @@
 
 .no-padding {
   padding: 0px;
+}
+
+.no-margin {
+  margin: 0px;
 }
