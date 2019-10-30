@@ -11,7 +11,7 @@ function App() {
       <Router>
         <ArticlesContainer path="/" />
         <ArticlesContainer path="/articles" />
-        <ArticlesContainer path="/topics/:slug" />
+        <ArticlesContainer path="/topics/:topic_slug" />
       </Router>
     </div>
   );

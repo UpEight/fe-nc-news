@@ -1,5 +1,6 @@
 import React from 'react';
 import TopicCard from './TopicCard';
+import { Link } from '@reach/router';
 
 class TopicsList extends React.Component {
   state = {
@@ -25,7 +26,9 @@ class TopicsList extends React.Component {
         <h2>Topics</h2>
         <ul className="no-padding no-margin">
           {topics.map(topic => (
-            <TopicCard key={topic.slug} topic={topic} />
+            <Link to={`/topics/${topic.slug}`}>
+              <TopicCard key={topic.slug} topic={topic} />
+            </Link>
           ))}
         </ul>
       </section>
