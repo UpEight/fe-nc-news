@@ -18,7 +18,7 @@ class SingleArticleContainer extends React.Component {
       <main className="single-article-container">
         <ArticleHeader title={article.title} votes={article.votes} />
         <Article article={article} />
-        <Comments />
+        <Comments articleId={article.article_id} />
       </main>
     );
   }

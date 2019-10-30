@@ -6,7 +6,7 @@ const Article = ({ article }) => {
   return (
     <section className="article">
       <ArticleText article={article} />
-      <Voter articleId={article._id} votes={article.votes} />
+      <Voter postId={article.article_id} votes={article.votes} />
     </section>
   );
 };
