@@ -3,15 +3,15 @@ import { Link } from '@reach/router';
 
 const ArticleCard = ({ article }) => {
   return (
-    <section className="article-card">
-      <Link to={`/topics/${article.topic}`}>
+    <Link to={`/articles/${article.article_id}`}>
+      <section className="article-card">
         <p className="article-topic-header">{article.topic}</p>
-      </Link>
-      <p className="article-author-date-text">
-        Posted by {article.author} at {article.created_at}
-      </p>
-      <p className="article-title-text">{article.title}</p>
-    </section>
+        <p className="article-author-date-text">
+          Posted by {article.author} at {article.created_at}
+        </p>
+        <p className="article-title-text">{article.title}</p>
+      </section>
+    </Link>
   );
 };
 

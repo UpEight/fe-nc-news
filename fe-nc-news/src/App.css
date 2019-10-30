@@ -127,16 +127,118 @@
 .article-topic-header {
   grid-area: article-topic-header;
   font-weight: bold;
+  text-align: left;
 }
 
 .article-author-date-text {
   grid-area: article-author-date-text;
+  text-align: right;
+  padding-right: 20px;
 }
 
 .article-title-text {
   grid-area: article-title-text;
   font-weight: bold;
   font-size: 14pt;
+}
+
+.single-article-container {
+  background-color: lightgrey;
+  display: grid;
+  grid-template-areas:
+    'article-header'
+    'article'
+    'comments';
+}
+
+@media only screen and (min-width: 400px) {
+  .single-article-container {
+    grid-template-columns: 1fr 6fr 1fr;
+    grid-template-areas:
+      '. article-header .'
+      ' . article .'
+      '. comments .';
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .single-article-container {
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-areas:
+      '. article-header .'
+      '. article .'
+      '. comments .';
+  }
+}
+
+.article-header {
+  grid-area: article-header;
+  background-color: #282c34;
+  color: white;
+  display: grid;
+  grid-template-columns: 9fr 1fr;
+  grid-template-areas:
+    '. button-close-article'
+    'article-header-title article-header-title';
+}
+
+.article-header-title {
+  grid-area: article-header-title;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.button-close-article {
+  grid-area: button-close-article;
+}
+
+.article {
+  grid-area: article;
+  background-color: white;
+  display: grid;
+  padding-right: 10px;
+  grid-template-columns: 1fr 9fr;
+  grid-template-areas:
+    'voter article-text'
+    '. article-text';
+}
+
+.article-text {
+  grid-area: article-text;
+  align-self: start;
+  display: grid;
+  margin-left: 5px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    'article-topic-header article-author-date-text article-author-date-text'
+    'article-body article-body article-body'
+    'article-comment-count article-comment-count .';
+}
+
+.article-body {
+  grid-area: article-body;
+  text-align: justify;
+  padding-right: 20px;
+}
+
+.article-comment-count {
+  grid-area: article-comment-count;
+  text-align: left;
+}
+
+.voter {
+  grid-area: voter;
+  padding-left: 10px;
+  padding-right: 5px;
+}
+
+.comments {
+  grid-area: comments;
+  background-color: white;
+}
+
+#single-article-title {
+  text-align: left;
 }
 
 .no-padding {

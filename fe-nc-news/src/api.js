@@ -13,3 +13,9 @@ export const getArticles = topic_slug => {
 export const getTopics = () => {
   return request.get('/topics').then(response => response.data.topics);
 };
+
+export const getArticleById = articleId => {
+  return request
+    .get(`/articles/${articleId}`)
+    .then(response => response.data.article);
+};
