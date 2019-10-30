@@ -1,9 +1,9 @@
 import React from 'react';
 
-const TopicHeader = () => {
+const TopicHeader = ({ topic }) => {
   return (
     <section className="topic-header">
-      <h2>Topic Header</h2>
+      <h2>{topic}</h2>
     </section>
   );
 };

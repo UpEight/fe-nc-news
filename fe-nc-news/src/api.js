@@ -9,3 +9,7 @@ export const getArticles = topic_slug => {
     .get('/articles', { params: { topic: topic_slug } })
     .then(response => response.data.articles);
 };
+
+export const getTopics = () => {
+  return request.get('/topics').then(response => response.data.topics);
+};

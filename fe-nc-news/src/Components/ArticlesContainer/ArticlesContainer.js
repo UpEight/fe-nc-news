@@ -13,10 +13,12 @@ class ArticlesContainer extends React.Component {
 
   render() {
     const { articles, isLoading } = this.state;
+    const { topic_slug } = this.props;
+
     if (isLoading) return <LoadingIndicator />;
     return (
       <main className="articles-container">
-        <TopicHeader />
+        <TopicHeader topic={topic_slug} />
         <ArticlesList articles={articles} />
         <TopicsList />
       </main>
@@ -28,8 +30,6 @@ class ArticlesContainer extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log(prevProps.topic_slug, '<<<<<prevProps');
-    console.log(this.props.topic_slug, 'this.props');
     if (this.props.topic_slug !== prevProps.topic_slug) this.fetchArticles();
   }
 
