@@ -7,7 +7,7 @@ const ArticlesList = ({ articles }) => {
     <ul className="articles-list no-padding">
       {articles.map(article => (
         <Link
-          class="link"
+          className="link"
           to={`/articles/${article.article_id}`}
           key={article.article_id}
         >
