@@ -198,6 +198,8 @@
   display: grid;
   padding-right: 10px;
   grid-template-columns: 1fr 9fr;
+  border: 1px solid lightgrey;
+  /* margin: 10px 10px 10px 10px; */
   grid-template-areas:
     'voter article-text'
     '. article-text';
@@ -211,8 +213,13 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
     'article-topic-header article-author-date-text article-author-date-text'
+    'article-title-text article-title-text .'
     'article-body article-body article-body'
     'article-comment-count article-comment-count .';
+}
+
+.article-title-text {
+  text-align: left;
 }
 
 .article-body {
@@ -247,4 +254,9 @@
 
 .no-margin {
   margin: 0px;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
 }

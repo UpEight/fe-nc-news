@@ -4,6 +4,7 @@ import TopicsList from './TopicsList';
 import TopicHeader from './TopicHeader';
 import * as api from '../../api';
 import LoadingIndicator from '../LoadingIndicator';
+import ArticlesSorter from './ArticlesSorter';
 
 class ArticlesContainer extends React.Component {
   state = {
@@ -19,6 +20,7 @@ class ArticlesContainer extends React.Component {
     return (
       <main className="articles-container">
         <TopicHeader topic={topic_slug} />
+        <ArticlesSorter />
         <ArticlesList articles={articles} />
         <TopicsList />
       </main>

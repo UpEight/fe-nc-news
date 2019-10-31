@@ -17,7 +17,7 @@ class TopicsList extends React.Component {
         <h2>Topics</h2>
         <ul className="no-padding no-margin">
           {topics.map(topic => (
-            <Link to={`/topics/${topic.slug}`} key={topic.slug}>
+            <Link class="link" to={`/topics/${topic.slug}`} key={topic.slug}>
               <TopicCard topic={topic} />
             </Link>
           ))}

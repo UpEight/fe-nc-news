@@ -1,17 +1,20 @@
 import React from 'react';
-import ArticleCard from './ArticleCard';
-import ArticlesSorter from './ArticlesSorter';
+import Article from '../SingleArticleContainer/Article';
+import { Link } from '@reach/router';
 
 const ArticlesList = ({ articles }) => {
   return (
-    <>
-      <ArticlesSorter />
-      <ul className="articles-list no-padding">
-        {articles.map(article => (
-          <ArticleCard key={article.article_id} article={article} />
-        ))}
-      </ul>
-    </>
+    <ul className="articles-list no-padding">
+      {articles.map(article => (
+        <Link
+          class="link"
+          to={`/articles/${article.article_id}`}
+          key={article.article_id}
+        >
+          <Article article={article} />
+        </Link>
+      ))}
+    </ul>
   );
 };
 
