@@ -285,7 +285,7 @@
 .comment-adder {
   grid-area: comment-adder;
   display: grid;
-  grid-template-columns: 9fr 1fr;
+  grid-template-columns: 1fr;
   grid-template-areas:
     'add-comment-text-area'
     'comment-button';
@@ -298,8 +298,7 @@
 
 .add-comment-text-area {
   grid-area: add-comment-text-area;
-  width: 100%;
-  margin-left: 20px;
+  width: 90%;
   margin-top: 20px;
   min-height: 50px;
   max-height: auto;
