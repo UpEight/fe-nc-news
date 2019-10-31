@@ -5,20 +5,23 @@ import TopicHeader from './TopicHeader';
 import * as api from '../../api';
 import LoadingIndicator from '../LoadingIndicator';
 import ArticlesSorter from './ArticlesSorter';
+import ErrorPage from '../ErrorPage';
 
 class ArticlesContainer extends React.Component {
   state = {
     articles: [],
     isLoading: true,
+    err: null,
     sort_by: 'created_at',
     order: 'desc'
   };
 
   render() {
-    const { articles, isLoading } = this.state;
+    const { articles, isLoading, err } = this.state;
     const { topic_slug } = this.props;
 
     if (isLoading) return <LoadingIndicator />;
+    if (err) return <ErrorPage err={err} />;
     return (
       <main className="articles-container">
         <TopicHeader topic={topic_slug} />
@@ -56,7 +59,12 @@ class ArticlesContainer extends React.Component {
       .then(articles => {
         this.setState({ articles: articles, isLoading: false });
       })
-      .catch(err => console.log(err));
+      .catch(err =>
+        this.setState({
+          err: { status: err.response.status, msg: err.response.data.msg },
+          isLoading: false
+        })
+      );
   };
 
   updateSortBy = event => {

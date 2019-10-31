@@ -4,6 +4,7 @@ import Header from './Components/Header';
 import ArticlesContainer from './Components/ArticlesContainer/ArticlesContainer';
 import { Router } from '@reach/router';
 import SingleArticleContainer from './Components/SingleArticleContainer/SingleArticleContainer';
+import ErrorPage from './Components/ErrorPage';
 
 class App extends React.Component {
   state = {
@@ -15,6 +16,7 @@ class App extends React.Component {
       <div className="App">
         <Header loggedInUser={loggedInUser} />
         <Router>
+          <ErrorPage default />
           <ArticlesContainer path="/" />
           <ArticlesContainer path="/articles" />
           <ArticlesContainer path="/topics/:topic_slug" />
