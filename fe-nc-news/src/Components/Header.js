@@ -1,9 +1,12 @@
 import React from 'react';
+import Logo from './Logo';
+import LoggedInUser from './LoggedInUser';
 
-const Header = () => {
+const Header = ({ loggedInUser }) => {
   return (
     <header className="header">
-      <h1>Header</h1>
+      <Logo />
+      <LoggedInUser loggedInUser={loggedInUser} />
     </header>
   );
 };

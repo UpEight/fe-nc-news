@@ -13,12 +13,13 @@ class SingleArticleContainer extends React.Component {
 
   render() {
     const { article, isLoading } = this.state;
+    const { loggedInUser } = this.props;
     if (isLoading) return <LoadingIndicator />;
     return (
       <main className="single-article-container">
         <ArticleHeader title={article.title} votes={article.votes} />
         <Article article={article} />
-        <Comments articleId={article.article_id} />
+        <Comments articleId={article.article_id} loggedInUser={loggedInUser} />
       </main>
     );
   }

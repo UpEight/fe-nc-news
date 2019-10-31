@@ -27,3 +27,12 @@ export const getCommentsByArticleId = articleId => {
     .get(`/articles/${articleId}/comments`)
     .then(response => response.data.comments);
 };
+
+export const postComment = (articleId, loggedInUser, commentText) => {
+  return request
+    .post(`/articles/${articleId}/comments`, {
+      username: loggedInUser,
+      body: commentText
+    })
+    .then(response => response.data.comment);
+};
