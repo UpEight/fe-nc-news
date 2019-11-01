@@ -228,7 +228,7 @@
   grid-template-areas:
     'voter post-deleter'
     'voter article-text'
-    '. article-text';
+    'voter article-text';
 }
 
 .article-text {
@@ -272,6 +272,7 @@
   padding-left: 10px;
   padding-right: 5px;
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .comments {
