@@ -35,7 +35,6 @@ class TopicsList extends React.Component {
   }
 
   fetchTopics = () => {
-    console.log('Fetching topics...');
     api.getTopics().then(topics => {
       this.setState({ topics: topics, isLoading: false });
     });

@@ -41,7 +41,6 @@ class Comments extends React.Component {
   }
 
   fetchComments() {
-    console.log('fetching comments...');
     const { articleId } = this.props;
     api
       .getCommentsByArticleId(articleId)

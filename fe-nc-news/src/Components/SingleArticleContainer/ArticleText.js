@@ -8,6 +8,7 @@ const ArticleText = ({ article }) => {
       <p className="article-author-date-text">
         Posted by {article.author} | {formattedDate.toString()}
       </p>
+
       <p className="article-title-text">{article.title}</p>
       <p className="article-body">{article.body}</p>
       <p className="article-comment-count">Comments: {article.comment_count}</p>

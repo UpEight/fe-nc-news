@@ -1,12 +1,19 @@
 import React from 'react';
 import ArticleText from './ArticleText';
 import Voter from './Voter';
+import { Link } from '@reach/router';
 
 const Article = ({ article }) => {
   return (
     <section className="article">
-      <ArticleText article={article} />
-      <Voter postId={article.article_id} votes={article.votes} />
+      <Link className="link" to={`/articles/${article.article_id}`}>
+        <ArticleText article={article} />
+      </Link>
+      <Voter
+        articleType="articles"
+        postId={article.article_id}
+        votes={article.votes}
+      />
     </section>
   );
 };

@@ -13,7 +13,11 @@ const CommentCard = ({ comment, loggedInUser, removeComment }) => {
         />
       )}
       <CommentText comment={comment} />
-      <Voter postId={comment.comment_id} votes={comment.votes} />
+      <Voter
+        commentType="comments"
+        postId={comment.comment_id}
+        votes={comment.votes}
+      />
     </section>
   );
 };

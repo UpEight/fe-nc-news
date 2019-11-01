@@ -40,3 +40,11 @@ export const postComment = (articleId, loggedInUser, commentText) => {
 export const deleteComment = commentId => {
   return request.delete(`/comments/${commentId}`);
 };
+
+export const changeVotesTotal = (postType, postId, voteAmount) => {
+  return request
+    .patch(`/${postType}/${postId}`, {
+      inc_votes: voteAmount
+    })
+    .then(response => response.data);
+};

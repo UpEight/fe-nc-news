@@ -51,7 +51,6 @@ class ArticlesContainer extends React.Component {
   }
 
   fetchArticles = () => {
-    console.log('Fetching articles...');
     const { topic_slug } = this.props;
     const { sort_by, order } = this.state;
     api
