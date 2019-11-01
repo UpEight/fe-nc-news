@@ -36,3 +36,7 @@ export const postComment = (articleId, loggedInUser, commentText) => {
     })
     .then(response => response.data.comment);
 };
+
+export const deleteComment = commentId => {
+  return request.delete(`/comments/${commentId}`);
+};

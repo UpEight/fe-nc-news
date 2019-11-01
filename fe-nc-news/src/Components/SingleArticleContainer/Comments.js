@@ -13,18 +13,31 @@ class Comments extends React.Component {
   };
   render() {
     const { comments, isLoading, err } = this.state;
+    const { loggedInUser } = this.props;
     if (isLoading) return <LoadingIndicator />;
     if (err) return <ErrorPage err={err} />;
     return (
       <section className="comments">
         <CommentAdder addComment={this.addComment} />
-        <CommentsList comments={comments} />
+        <CommentsList
+          comments={comments}
+          loggedInUser={loggedInUser}
+          removeComment={this.removeComment}
+        />
       </section>
     );
   }
 
   componentDidMount() {
     this.fetchComments();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { comments } = this.state;
+    if (comments.length !== prevState.comments.length) {
+      this.fetchComments();
+      this.props.updateCommentCount(comments.length);
+    }
   }
 
   fetchComments() {
@@ -43,7 +56,6 @@ class Comments extends React.Component {
 
   addComment = commentText => {
     const { loggedInUser, articleId } = this.props;
-    console.log('adding comment', commentText);
     api
       .postComment(articleId, loggedInUser, commentText)
       .then(comment =>
@@ -51,6 +63,18 @@ class Comments extends React.Component {
           return { comments: [comment, ...currentState.comments] };
         })
       )
+      .catch(err =>
+        this.setState({
+          err: { status: err.response.status, msg: err.response.data.msg },
+          isLoading: false
+        })
+      );
+  };
+
+  removeComment = commentId => {
+    api
+      .deleteComment(commentId)
+      .then(this.setState({ comments: [] }))
       .catch(err =>
         this.setState({
           err: { status: err.response.status, msg: err.response.data.msg },

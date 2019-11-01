@@ -22,7 +22,11 @@ class SingleArticleContainer extends React.Component {
       <main className="single-article-container">
         <ArticleHeader title={article.title} votes={article.votes} />
         <Article article={article} />
-        <Comments articleId={article.article_id} loggedInUser={loggedInUser} />
+        <Comments
+          articleId={article.article_id}
+          loggedInUser={loggedInUser}
+          updateCommentCount={this.updateCommentCount}
+        />
       </main>
     );
   }
@@ -43,6 +47,13 @@ class SingleArticleContainer extends React.Component {
         })
       );
   }
+
+  updateCommentCount = newCommentCount => {
+    this.setState(currentState => {
+      const article = currentState.article;
+      return { article: { ...article, comment_count: newCommentCount } };
+    });
+  };
 }
 
 export default SingleArticleContainer;
