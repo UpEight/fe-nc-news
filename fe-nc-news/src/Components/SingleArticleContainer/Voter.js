@@ -9,27 +9,29 @@ class Voter extends React.Component {
   render() {
     const { votes } = this.props;
     const { voteChange } = this.state;
+    // <button class="btn">
+    //       <i class="fa fa-home"></i>
+    //     </button>
     return (
       <section className="voter">
         <button
-          className="button button-upvote"
+          className="voter-button fa fa-caret-up"
+          id="voter-button"
           value="1"
           onClick={this.handleClick}
           disabled={voteChange === '1' || voteChange === '-1' ? true : false}
-        >
-          Up-Vote
-        </button>
-        <p className="vote-text">
-          {parseInt(votes) + parseInt(voteChange)} votes
+          aria-hidden="true"
+        ></button>
+        <p className="vote-text" id="vote-text">
+          {parseInt(votes) + parseInt(voteChange)}
         </p>
         <button
-          className="button button-downvote"
+          className="voter-button fa fa-caret-down"
+          id="voter-button"
           value="-1"
           onClick={this.handleClick}
           disabled={voteChange === '-1' || voteChange === '1' ? true : false}
-        >
-          Down-Vote
-        </button>
+        ></button>
       </section>
     );
   }
