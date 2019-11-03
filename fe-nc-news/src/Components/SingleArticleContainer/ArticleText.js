@@ -26,9 +26,7 @@ const ArticleText = ({ article, containerType }) => {
         {containerType === 'articles' ? (
           <>
             <ArticleTextTruncator>{article.body}</ArticleTextTruncator>
-            <p className="view-full-article-text indicate-link">
-              View full article
-            </p>
+            <p className="view-full-article-text indicate-link">View article</p>
           </>
         ) : (
           <p className="article-body">{article.body}</p>

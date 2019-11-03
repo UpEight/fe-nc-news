@@ -108,7 +108,7 @@
 
 @media only screen and (min-width: 900px) {
   .articles-container {
-    grid-template-columns: 2fr 6fr 2fr 2fr;
+    grid-template-columns: 1fr 6fr 2fr 1fr;
     grid-template-areas:
       'topic-header topic-header topic-header topic-header'
       'articles-sorter articles-sorter articles-sorter articles-sorter'
@@ -276,7 +276,7 @@
   background-color: white;
   display: grid;
   padding-right: 10px;
-  grid-template-columns: 1fr 9fr;
+  grid-template-columns: 1fr 14fr;
   border: 1px solid lightgrey;
   margin: 0px;
   grid-template-areas:
@@ -335,25 +335,22 @@
 }
 
 .fade:after {
-  content: '';
+  content: '...';
   text-align: right;
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 80%;
+  width: 50%;
   height: 1.2em;
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0),
-    rgba(255, 255, 255, 1) 50%
-  );
 }
 
 .view-full-article-text {
   grid-area: view-full-article-text;
-  text-align: left;
+  text-align: right;
   font-weight: bold;
-  margin: 0px;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  margin-right: 25px;
   font-size: 11pt;
 }
 
@@ -379,8 +376,7 @@
 
 .voter {
   grid-area: voter;
-  padding-left: 10px;
-  padding-right: 5px;
+  padding-left: 5px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -456,16 +452,12 @@
   color: black;
 }
 
-/* .link:link {
-  color: lightskyblue;
-} */
-
 .article-topic-header {
   font-weight: bold;
 }
 
 .article-topic-header:link {
-  color: rgb(22, 170, 220);
+  color: rgb(34, 112, 160);
   font-weight: bold;
 }
 
@@ -484,7 +476,7 @@
 }
 
 #voter-button {
-  font-size: 48px;
+  font-size: 40px;
   background-color: white;
   border: none;
 }
