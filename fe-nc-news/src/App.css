@@ -159,7 +159,7 @@
 }
 
 .topics-list {
-  margin-top: 20px;
+  margin-top: 25px;
   background-color: rgba(231, 231, 232, 0.961);
   border: 1px solid lightgrey;
   grid-area: topics-list;
@@ -278,12 +278,15 @@
   padding-right: 10px;
   grid-template-columns: 1fr 9fr;
   border: 1px solid lightgrey;
-  /* margin: 10px 0px 10px 0px; */
   margin: 0px;
   grid-template-areas:
     'voter post-deleter'
     'voter article-text'
     'voter article-text';
+}
+
+.article-margin {
+  margin: 10px 0px 10px 0px;
 }
 
 .article-text {
