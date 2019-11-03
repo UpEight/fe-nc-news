@@ -4,7 +4,7 @@ import LoggedInUser from './LoggedInUser';
 
 const Header = ({ loggedInUser }) => {
   return (
-    <header className="header" id="header">
+    <header className="header">
       <Logo />
       <LoggedInUser loggedInUser={loggedInUser} />
     </header>
