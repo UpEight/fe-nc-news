@@ -33,10 +33,15 @@ const ArticleText = ({ article, containerType }) => {
         ) : (
           <p className="article-body">{article.body}</p>
         )}
-
-        <p className="article-comment-count indicate-link">
-          Comments: {article.comment_count}
-        </p>
+        {containerType === 'articles' ? (
+          <p className="article-comment-count indicate-link">
+            Comments: {article.comment_count}
+          </p>
+        ) : (
+          <p className="article-comment-count">
+            Comments: {article.comment_count}
+          </p>
+        )}
       </Link>
     </section>
   );
