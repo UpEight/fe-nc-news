@@ -1,18 +1,44 @@
 import React from 'react';
+import { Link } from '@reach/router';
+import ArticleTextTruncator from '../ArticleTextTruncator';
 
-const ArticleText = ({ article }) => {
+const ArticleText = ({ article, containerType }) => {
   const formattedDate = new Date(article.created_at);
   return (
-    <div className="article-text">
-      <p className="article-topic-header">{article.topic}</p>
-      <p className="article-author-date-text">
-        Posted by {article.author} | {formattedDate.toString()}
-      </p>
+    <section>
+      <section className="article-text">
+        <Link
+          className="link article-topic-header indicate-link"
+          to={`/topics/${article.topic}`}
+        >
+          <p className="article-topic-header">{article.topic}</p>
+        </Link>
+        <p className="article-author-date-text">
+          Posted by {article.author} | {formattedDate.toString()}
+        </p>
+      </section>
+      <Link
+        className="link article-text"
+        to={`/articles/${article.article_id}`}
+      >
+        <p className="article-title-text">{article.title}</p>
 
-      <p className="article-title-text">{article.title}</p>
-      <p className="article-body">{article.body}</p>
-      <p className="article-comment-count">Comments: {article.comment_count}</p>
-    </div>
+        {containerType === 'articles' ? (
+          <>
+            <ArticleTextTruncator>{article.body}</ArticleTextTruncator>
+            <p className="view-full-article-text indicate-link">
+              View full article
+            </p>
+          </>
+        ) : (
+          <p className="article-body">{article.body}</p>
+        )}
+
+        <p className="article-comment-count indicate-link">
+          Comments: {article.comment_count}
+        </p>
+      </Link>
+    </section>
   );
 };
 
