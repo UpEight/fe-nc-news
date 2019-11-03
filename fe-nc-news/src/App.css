@@ -41,11 +41,60 @@
   .header {
     height: 125px;
   }
+
+  .article-title-text {
+    font-size: 12pt;
+  }
+
+  .article-topic-header {
+    font-size: 10pt;
+  }
+
+  .article-comment-count {
+    font-size: 9pt;
+    margin-top: 0px;
+  }
+
+  .view-full-article-text {
+    font-size: 10pt;
+  }
+
+  .article-author-date-text {
+    font-size: 8pt;
+  }
+
+  .article-body {
+    font-size: 11pt;
+  }
 }
 
 @media only screen and (min-width: 650px) {
   .header {
     height: 75px;
+  }
+
+  .article-title-text {
+    font-size: 14pt;
+  }
+
+  .article-topic-header {
+    font-size: 12pt;
+  }
+
+  .article-comment-count {
+    font-size: 11pt;
+  }
+
+  .view-full-article-text {
+    font-size: 11pt;
+  }
+
+  .article-author-date-text {
+    font-size: 10pt;
+  }
+
+  .article-body {
+    font-size: 12pt;
   }
 }
 
@@ -95,9 +144,9 @@
     'topics-list';
 }
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 0px) {
   .articles-container {
-    grid-template-columns: 20%;
+    grid-template-columns: 1fr;
     grid-template-areas:
       'topic-header'
       'articles-sorter'
@@ -217,7 +266,8 @@
 .article-title-text {
   grid-area: article-title-text;
   font-weight: bold;
-  font-size: 14pt;
+  text-align: left;
+  margin-top: 0px;
 }
 
 .single-article-container {
@@ -303,10 +353,6 @@
     'article-comment-count article-comment-count .';
 }
 
-.article-title-text {
-  text-align: left;
-}
-
 .article-author-date-text {
   color: rgb(108, 108, 108);
 }
@@ -320,7 +366,6 @@
   grid-area: article-body;
   text-align: justify;
   padding-right: 20px;
-  font-size: 12pt;
 }
 
 .truncate-text {
@@ -351,7 +396,6 @@
   margin-top: 5px;
   margin-bottom: 0px;
   margin-right: 25px;
-  font-size: 11pt;
 }
 
 .indicate-link:visited {
@@ -371,14 +415,13 @@
 .article-comment-count {
   grid-area: article-comment-count;
   text-align: left;
-  font-size: 11pt;
 }
 
 .voter {
   grid-area: voter;
-  padding-left: 5px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  /* padding-left: 5px; */
+  /* margin-top: 10px;
+  margin-bottom: 10px; */
 }
 
 .comments {
