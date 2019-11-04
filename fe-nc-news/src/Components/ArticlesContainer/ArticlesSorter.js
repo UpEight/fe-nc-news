@@ -16,17 +16,19 @@ const ArticlesSorter = ({ updateSortBy, updateSortOrder }) => {
         </select>
       </label>
       <label>
-        Ascending
+        <i className="sort-label fa fa-caret-up"></i>
         <input
           type="radio"
           id="sort-asc"
           name="sort-order"
           value="asc"
           onChange={updateSortOrder}
+          className="sort-label hide"
+          alt="Sort ascending"
         ></input>
       </label>
       <label>
-        Descending
+        <i className="sort-label sort-desc fa fa-caret-down"></i>
         <input
           type="radio"
           id="sort-desc"
@@ -34,6 +36,7 @@ const ArticlesSorter = ({ updateSortBy, updateSortOrder }) => {
           value="desc"
           defaultChecked
           onChange={updateSortOrder}
+          alt="Sort descending"
         ></input>
       </label>
     </section>

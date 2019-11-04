@@ -246,8 +246,15 @@
   border-top: 1px solid lightgrey;
   border-bottom: 1px solid lightgrey;
   background-color: white;
-  padding-top: 5px;
+  padding-bottom: 5px;
   height: 30px;
+  font-size: 11pt;
+}
+
+.sort-label {
+  font-size: 20pt;
+  margin-left: 10px;
+  border: none;
 }
 
 .article-topic-header {
