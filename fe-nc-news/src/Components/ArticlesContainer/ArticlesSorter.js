@@ -4,7 +4,7 @@ const ArticlesSorter = ({ updateSortBy, updateSortOrder }) => {
   return (
     <section className="articles-sorter">
       <label>
-        Sort:
+        Sort by
         <select
           onChange={updateSortBy}
           className="sort-options"

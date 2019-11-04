@@ -251,10 +251,15 @@
   font-size: 11pt;
 }
 
+.sort-options {
+  margin-left: 3px;
+}
+
 .sort-label {
   font-size: 20pt;
   margin-left: 10px;
-  border: none;
+  border: 0;
+  color: grey;
 }
 
 .article-topic-header {
@@ -267,7 +272,7 @@
 .article-author-date-text {
   grid-area: article-author-date-text;
   text-align: right;
-  padding-right: 20px;
+  padding-right: 5px;
 }
 
 .article-title-text {
@@ -333,7 +338,7 @@
   background-color: white;
   display: grid;
   padding-right: 10px;
-  grid-template-columns: 1fr 14fr;
+  grid-template-columns: 1fr 20fr;
   border: 1px solid lightgrey;
   margin: 0px;
   grid-template-areas:
@@ -376,7 +381,7 @@
 }
 
 .truncate-text {
-  width: 90%;
+  width: 95%;
   overflow: hidden;
   line-height: 1.2em;
 }
@@ -402,7 +407,7 @@
   font-weight: bold;
   margin-top: 5px;
   margin-bottom: 0px;
-  margin-right: 25px;
+  margin-right: 5px;
 }
 
 .indicate-link:visited {
@@ -426,7 +431,7 @@
 
 .voter {
   grid-area: voter;
-  /* padding-left: 5px; */
+  padding-left: 5px;
   /* margin-top: 10px;
   margin-bottom: 10px; */
 }
@@ -478,10 +483,10 @@
 .post-deleter {
   grid-area: post-deleter;
   justify-self: right;
-  width: 80px;
-  height: 30px;
+  width: 60px;
+  height: 22px;
   margin-top: 5px;
-  margin-right: 20px;
+  margin-right: 5px;
   font-size: 10pt;
 }
 
@@ -526,7 +531,9 @@
 }
 
 #voter-button {
-  font-size: 40px;
+  font-size: 26px;
+  padding: none;
+  margin: none;
   background-color: white;
   border: none;
 }
@@ -535,10 +542,14 @@
   font-size: 44px;
   background-color: white;
   border: none;
+  padding-right: 2px;
+  padding-left: 2px;
+  margin: none;
 }
 
 #vote-text {
   margin: 0px;
+  font-size: 10pt;
 }
 
 .logo-title {
