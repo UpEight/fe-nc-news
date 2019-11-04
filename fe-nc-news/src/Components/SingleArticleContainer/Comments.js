@@ -35,7 +35,6 @@ class Comments extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     const { comments } = this.state;
     if (comments.length !== prevState.comments.length) {
-      this.fetchComments();
       this.props.updateCommentCount(comments.length);
     }
   }
@@ -73,7 +72,15 @@ class Comments extends React.Component {
   removeComment = commentId => {
     api
       .deleteComment(commentId)
-      .then(this.setState({ comments: [] }))
+      .then(
+        this.setState(currentState => {
+          return {
+            comments: currentState.comments.filter(
+              comment => comment.comment_id !== commentId
+            )
+          };
+        })
+      )
       .catch(err =>
         this.setState({
           err: { status: err.response.status, msg: err.response.data.msg },
