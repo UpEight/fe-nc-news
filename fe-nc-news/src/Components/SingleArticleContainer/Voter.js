@@ -34,11 +34,6 @@ class Voter extends React.Component {
     );
   }
 
-  componentDidMount() {
-    const { votes } = this.props;
-    this.setState({ currentVoteTotal: votes });
-  }
-
   handleClick = event => {
     const increment = event.target.value;
     this.updateCurrentVoteTotal(increment);
