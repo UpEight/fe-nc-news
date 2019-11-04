@@ -7,7 +7,7 @@ const ArticlesList = ({ articles, containerType }) => {
     <ul className="articles-list no-padding">
       {articles.map(article =>
         containerType === 'articles' ? (
-          <ArticleMarginWrapper>
+          <ArticleMarginWrapper key={article.article_id}>
             <Article
               key={article.article_id}
               article={article}

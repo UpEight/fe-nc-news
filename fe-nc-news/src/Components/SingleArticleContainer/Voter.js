@@ -4,14 +4,12 @@ import * as api from '../../api';
 class Voter extends React.Component {
   state = {
     voteChange: 0,
-    err: null
+    err: null,
+    currentVoteTotal: this.props.votes
   };
+
   render() {
-    const { votes } = this.props;
-    const { voteChange } = this.state;
-    // <button class="btn">
-    //       <i class="fa fa-home"></i>
-    //     </button>
+    const { voteChange, currentVoteTotal } = this.state;
     return (
       <section className="voter">
         <button
@@ -19,27 +17,45 @@ class Voter extends React.Component {
           id="voter-button"
           value="1"
           onClick={this.handleClick}
-          disabled={voteChange === '1' || voteChange === '-1' ? true : false}
+          disabled={voteChange === '1' ? true : false}
           aria-hidden="true"
         ></button>
         <p className="vote-text" id="vote-text">
-          {parseInt(votes) + parseInt(voteChange)}
+          {currentVoteTotal}
         </p>
         <button
           className="voter-button fa fa-caret-down"
           id="voter-button"
           value="-1"
           onClick={this.handleClick}
-          disabled={voteChange === '-1' || voteChange === '1' ? true : false}
+          disabled={voteChange === '-1' ? true : false}
         ></button>
       </section>
     );
   }
 
+  componentDidMount() {
+    const { votes } = this.props;
+    this.setState({ currentVoteTotal: votes });
+  }
+
   handleClick = event => {
     const increment = event.target.value;
+    this.updateCurrentVoteTotal(increment);
+    this.updateApiVoteTotal(increment);
+  };
+
+  updateCurrentVoteTotal = increment => {
+    let currVotes = this.state.currentVoteTotal;
+    currVotes = this.state.currentVoteTotal + parseInt(increment);
+    this.setState({
+      voteChange: increment,
+      currentVoteTotal: currVotes
+    });
+  };
+
+  updateApiVoteTotal = increment => {
     const { articleType, commentType, postId } = this.props;
-    this.setState({ voteChange: increment });
     let postType = '';
     if (articleType) {
       postType = articleType;
