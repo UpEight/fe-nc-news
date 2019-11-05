@@ -1,6 +1,6 @@
 import React from 'react';
 import TopicCard from './TopicCard';
-import { Link } from '@reach/router';
+
 import LoadingIndicator from '../LoadingIndicator';
 import * as api from '../../api';
 
@@ -17,13 +17,7 @@ class TopicsList extends React.Component {
         <h2>Topics</h2>
         <ul className="no-padding no-margin">
           {topics.map(topic => (
-            <Link
-              className="link"
-              to={`/topics/${topic.slug}`}
-              key={topic.slug}
-            >
-              <TopicCard topic={topic} />
-            </Link>
+            <TopicCard key={topic.slug} topic={topic} />
           ))}
         </ul>
       </section>

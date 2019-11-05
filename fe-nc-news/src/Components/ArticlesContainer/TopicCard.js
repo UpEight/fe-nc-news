@@ -1,10 +1,13 @@
 import React from 'react';
+import { Link } from '@reach/router';
 
 const TopicCard = ({ topic }) => {
   return (
-    <section className="topic-card">
-      <h4>{topic.slug}</h4>
-    </section>
+    <Link className="link" to={`/topics/${topic.slug}`}>
+      <section className="topic-card">
+        <h4>{topic.slug}</h4>
+      </section>
+    </Link>
   );
 };
 
