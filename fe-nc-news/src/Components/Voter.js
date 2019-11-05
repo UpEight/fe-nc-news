@@ -52,11 +52,7 @@ class Voter extends React.Component {
   updateApiVoteTotal = increment => {
     const { articleType, commentType, postId } = this.props;
     let postType = '';
-    if (articleType) {
-      postType = articleType;
-    } else {
-      postType = commentType;
-    }
+    articleType ? (postType = articleType) : (postType = commentType);
     api
       .changeVotesTotal(postType, postId, increment)
       .catch(err => this.setState({ voteChange: 0 }));
