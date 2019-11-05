@@ -9,7 +9,6 @@ import ErrorPage from '../ErrorPage';
 
 class ArticlesContainer extends React.Component {
   state = {
-    containerType: 'articles',
     articles: [],
     isLoading: true,
     err: null,
@@ -18,7 +17,7 @@ class ArticlesContainer extends React.Component {
   };
 
   render() {
-    const { containerType, articles, isLoading, err } = this.state;
+    const { articles, isLoading, err } = this.state;
     const { topic_slug } = this.props;
 
     if (isLoading) return <LoadingIndicator />;
@@ -30,7 +29,7 @@ class ArticlesContainer extends React.Component {
           updateSortBy={this.updateSortBy}
           updateSortOrder={this.updateSortOrder}
         />
-        <ArticlesList articles={articles} containerType={containerType} />
+        <ArticlesList articles={articles} />
         <TopicsList />
       </main>
     );

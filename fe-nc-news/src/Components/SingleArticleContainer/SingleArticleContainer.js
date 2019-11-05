@@ -1,5 +1,5 @@
 import React from 'react';
-import Article from './Article';
+import SingleArticle from './SingleArticle';
 import ArticleHeader from './ArticleHeader';
 import Comments from './Comments';
 import * as api from '../../api';
@@ -21,7 +21,7 @@ class SingleArticleContainer extends React.Component {
     return (
       <main className="single-article-container">
         <ArticleHeader title={article.title} votes={article.votes} />
-        <Article article={article} />
+        <SingleArticle article={article} />
         <Comments
           articleId={article.article_id}
           loggedInUser={loggedInUser}

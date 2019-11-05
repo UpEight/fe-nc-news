@@ -1,11 +1,11 @@
 import React from 'react';
-import ArticleText from './ArticleText';
-import Voter from './Voter';
+import SingleArticleText from './SingleArticleText';
+import Voter from '../Voter';
 
-const Article = ({ article, containerType }) => {
+const SingleArticle = ({ article }) => {
   return (
     <section className="article">
-      <ArticleText article={article} containerType={containerType} />
+      <SingleArticleText article={article} />
       <Voter
         articleType="articles"
         postId={article.article_id}
@@ -15,4 +15,4 @@ const Article = ({ article, containerType }) => {
   );
 };
 
-export default Article;
+export default SingleArticle;

@@ -1,6 +1,6 @@
 import React from 'react';
 import CommentText from './CommentText';
-import Voter from './Voter';
+import Voter from '../Voter';
 import PostDeleter from '../PostDeleter';
 
 const CommentCard = ({ comment, loggedInUser, removeComment }) => {

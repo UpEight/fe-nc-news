@@ -1,27 +1,12 @@
 import React from 'react';
-import Article from '../SingleArticleContainer/Article';
-import ArticleMarginWrapper from '../ArticleMarginWrapper';
+import ArticleCard from './ArticleCard';
 
-const ArticlesList = ({ articles, containerType }) => {
+const ArticlesList = ({ articles }) => {
   return (
     <ul className="articles-list no-padding">
-      {articles.map(article =>
-        containerType === 'articles' ? (
-          <ArticleMarginWrapper key={article.article_id}>
-            <Article
-              key={article.article_id}
-              article={article}
-              containerType={containerType}
-            />
-          </ArticleMarginWrapper>
-        ) : (
-          <Article
-            key={article.article_id}
-            article={article}
-            containerType={containerType}
-          />
-        )
-      )}
+      {articles.map(article => (
+        <ArticleCard key={article.article_id} article={article} />
+      ))}
     </ul>
   );
 };

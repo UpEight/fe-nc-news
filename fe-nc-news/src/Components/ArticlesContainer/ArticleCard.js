@@ -1,17 +1,17 @@
 import React from 'react';
-import { Link } from '@reach/router';
+import TruncatedArticleText from './TruncatedArticleText';
+import Voter from '../Voter';
 
 const ArticleCard = ({ article }) => {
   return (
-    <Link to={`/articles/${article.article_id}`}>
-      <section className="article-card">
-        <p className="article-topic-header">{article.topic}</p>
-        <p className="article-author-date-text">
-          Posted by {article.author} at {article.created_at}
-        </p>
-        <p className="article-title-text">{article.title}</p>
-      </section>
-    </Link>
+    <section className="article article-margin">
+      <TruncatedArticleText article={article} />
+      <Voter
+        articleType="articles"
+        postId={article.article_id}
+        votes={article.votes}
+      />
+    </section>
   );
 };
 
