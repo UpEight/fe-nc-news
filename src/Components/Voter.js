@@ -36,7 +36,7 @@ class Voter extends React.Component {
 
   handleClick = event => {
     const increment = event.target.value;
-    this.updateCurrentVoteTotal(increment);
+    this.updateVoteChange(increment);
     this.updateApiVoteTotal(increment);
   };
 
