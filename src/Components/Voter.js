@@ -4,12 +4,12 @@ import * as api from '../api';
 class Voter extends React.Component {
   state = {
     voteChange: 0,
-    err: null,
-    currentVoteTotal: this.props.votes
+    err: null
   };
 
   render() {
-    const { voteChange, currentVoteTotal } = this.state;
+    const { voteChange } = this.state;
+    const { votes } = this.props;
     return (
       <section className="voter">
         <button
@@ -17,18 +17,18 @@ class Voter extends React.Component {
           id="voter-button"
           value="1"
           onClick={this.handleClick}
-          disabled={voteChange === '1' ? true : false}
+          disabled={voteChange === 1 ? true : false}
           aria-hidden="true"
         ></button>
         <p className="vote-text" id="vote-text">
-          {currentVoteTotal}
+          {parseInt(votes) + parseInt(voteChange)}
         </p>
         <button
           className="voter-button fa fa-caret-down"
           id="voter-button"
           value="-1"
           onClick={this.handleClick}
-          disabled={voteChange === '-1' ? true : false}
+          disabled={voteChange === -1 ? true : false}
         ></button>
       </section>
     );
@@ -40,12 +40,11 @@ class Voter extends React.Component {
     this.updateApiVoteTotal(increment);
   };
 
-  updateCurrentVoteTotal = increment => {
-    let currVotes = this.state.currentVoteTotal;
-    currVotes = this.state.currentVoteTotal + parseInt(increment);
-    this.setState({
-      voteChange: increment,
-      currentVoteTotal: currVotes
+  updateVoteChange = increment => {
+    this.setState(currentState => {
+      return {
+        voteChange: parseInt(currentState.voteChange) + parseInt(increment)
+      };
     });
   };
 
