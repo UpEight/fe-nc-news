@@ -56,7 +56,7 @@ class ArticlesContainer extends React.Component {
     api
       .getArticles(topic_slug, sort_by, order)
       .then(articles => {
-        this.setState({ articles: articles, isLoading: false });
+        this.setState({ articles: articles, isLoading: false, err: null });
       })
       .catch(err =>
         this.setState({
